@@ -54,45 +54,16 @@ The dataset is not included in this repository. Download `Churn_Modelling.csv` f
 | Final training accuracy | ~85.8% |
 | Final validation accuracy | ~84.4% |
 
-About 80% of customers in this dataset do not churn, so a model that always predicts "stayed" would already score about 80%. The network improves on that baseline, but accuracy alone does not show how well churners are detected.
-
 ## Key Learnings
 
 - Neural networks need **scaled inputs**. Training on raw features (balance and salary are in the tens of thousands) caused huge losses and unstable validation accuracy.
 - The same scaler must be applied to the training and test data.
-- For a single **sigmoid** output, class labels come from a threshold (`> 0.5`), not `argmax`, which is for softmax outputs.
 
-## Possible Improvements
-
-- Add `EarlyStopping` and `Dropout` to reduce overfitting
-- Use class weights or SMOTE to handle class imbalance
-- Feature engineering (for example balance-to-salary ratio, age groups)
-- Report precision, recall, F1 and ROC-AUC, not just accuracy
-- Compare against Random Forest and XGBoost
-- Hyperparameter tuning (layer sizes, learning rate, batch size)
 
 ## Tech Stack
 
 Python, NumPy, pandas, scikit-learn, TensorFlow/Keras, Matplotlib
 
-## How to Run
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/<your-username>/customer-churn-prediction.git
-cd customer-churn-prediction
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Download Churn_Modelling.csv from Kaggle into this folder
-# 4. In the notebook, change the read_csv path from
-#    '/kaggle/input/credit-card-customer-churn-prediction/Churn_Modelling.csv'
-#    to 'Churn_Modelling.csv'
-
-# 5. Launch the notebook
-jupyter notebook CustomerChurnPrediction.ipynb
-```
 
 ## Project Structure
 
@@ -104,6 +75,4 @@ customer-churn-prediction/
 └── .gitignore
 ```
 
-## Author
 
-**Abhay**
